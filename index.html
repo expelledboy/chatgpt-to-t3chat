@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChatGPT to T3Chat Translator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <h1>ChatGPT to T3Chat Converter</h1>
+        
+        <div class="info-section">
+            <h2>About this Converter</h2>
+            <p>This tool helps you move your ChatGPT conversations to T3Chat while preserving their essential content and structure.</p>
+
+            <h3>What You'll Get</h3>
+            <ul>
+                <li>✓ All your chat messages in their original order</li>
+                <li>✓ Complete conversation history with timestamps</li>
+                <li>✓ Your original conversation titles</li>
+                <li>✓ Latest versions of edited messages</li>
+                <li>✓ Clear distinction between your messages and AI responses</li>
+                <li>✓ Information about which AI model was used</li>
+            </ul>
+
+            <h3>Limitations</h3>
+            <ul>
+                <li>✗ Web commands (e.g., search requests) are excluded</li>
+                <li>✗ Images, videos, and other media are not included</li>
+                <li>✗ Tool messages (e.g., DALL-E generations) are skipped</li>
+                <li>✗ Incomplete or in-progress messages are excluded</li>
+                <li>✗ Audio transcriptions are simplified to text only</li>
+            </ul>
+
+            <h3>Step-by-Step Guide</h3>
+            <ol class="steps">
+                <li>
+                    <h4>Export from ChatGPT</h4>
+                    <ul>
+                        <li>Go to <a href="https://chatgpt.com/#settings/DataControls" target="_blank">ChatGPT Data Controls</a></li>
+                        <li>Click "Export data"</li>
+                        <li>Wait for the email from OpenAI (can take a few minutes)</li>
+                        <li>Click the download link in the email to get your .zip file</li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>Convert Your Data</h4>
+                    <div class="step-content">
+                        <div class="upload-section">
+                            <label for="fileInput" class="file-input-label">
+                                <span>Choose ChatGPT export file or drag it here</span>
+                                <input type="file" id="fileInput" accept=".zip" />
+                            </label>
+                        </div>
+                        <div id="status" class="status"></div>
+                        <div class="result-section">
+                            <button id="downloadBtn" class="download-btn" style="display: none;">
+                                Download Converted File
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <h4>Import to T3Chat</h4>
+                    <ul>
+                        <li>Go to <a href="https://t3.chat/auth" target="_blank">T3Chat</a></li>
+                        <li>Sign in to your account</li>
+                        <li>Click the "Import" button in the sidebar</li>
+                        <li>Select the converted file you downloaded</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script type="module" src="src/main.js"></script>
+
+    <script>
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            console.error('Error: ' + msg + '\nURL: ' + url + '\nLine: ' + lineNo + '\nColumn: ' + columnNo + '\nError object: ' + JSON.stringify(error));
+            return false;
+        };
+    </script>
+</body>
+</html>
